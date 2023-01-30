@@ -10,28 +10,6 @@
     <link rel="stylesheet" href="./css/order-list.css">
     <title>Order List</title>
 
-    <script>
-        async function callApi() {
-            let result = await fetch("https://5fc1a1c9cb4d020016fe6b07.mockapi.io/api/v1/orders");
-            result = await result.json();
-            console.warn(result);
-            document.getElementById("userData").innerHTML = result.map((user) => 
-                `<tr>
-                <td>${user.customerName}</td>
-                <td>${user.orderDate}</td>
-                <td>${user.orderTime}</td>
-                <td>${user.amount}</td>
-                <td>${user.orderStatus}</td>
-                
-                </tr>`
-            ).join(" ");
-
-        }
-        callApi();
-    </script>
-
-
-
 </head>
 
 <body>
@@ -68,11 +46,11 @@
                     <th scope="col">Customer Name</th>
                     <th scope="col">Order Date</th>
                     <th scope="col">Order Time</th>
-                    <th scope="col">"Amount</th>
+                    <th scope="col">Amount</th>
                     <th scope="col">Order Status</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="userData">
                 <!-- <tr>
                     <th scope="row">1</th>
                     <td>Mark</td>
@@ -93,6 +71,29 @@
             </tbody>
         </table>
     </div>
+
+
+
+    <script>
+        async function callApi() {
+            let result = await fetch("https://5fc1a1c9cb4d020016fe6b07.mockapi.io/api/v1/orders");
+            result = await result.json();
+            console.warn(result);
+            document.getElementById("userData").innerHTML = result.map((user) => 
+                `<tr>
+                <td>${user.id}</td>
+                <td>${user.customerName}</td>
+                <td>${user.orderDate}</td>
+                <td>${user.orderTime}</td>
+                <td>${user.amount}</td>
+                <td>${user.orderStatus}</td>
+                
+                </tr>`
+            ).join(" ");
+
+        }
+        callApi();
+    </script>
 
 </body>
 
