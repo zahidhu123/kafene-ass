@@ -1,0 +1,101 @@
+* {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.p-x-2 {
+    padding: 0px 20px;
+}
+
+.p-x-3 {
+    padding: 0px 30px;
+}
+
+.p-x-4 {
+    padding: 0px 40px;
+}
+
+.p-x-45 {
+    padding: 0px 45px;
+}
+
+.p-x-5 {
+    padding: 0px 50px;
+}
+
+.p-0 {
+    padding: 0px;
+}
+
+.m-0 {
+    margin: 0px;
+}
+
+.d-f {
+    display: flex;
+}
+.w-100{
+    width: 100%;
+}
+
+.container {
+    padding: 60px 100px;
+}
+
+nav {
+    box-shadow: 0 2px 4px #ccc;
+    color: #ffffff;
+    display: flex;
+    padding: 12px 19px;
+}
+
+.nav-wrapper {
+    display: flex;
+}
+
+.brand-logo {
+    width: 24px;
+    height: 28px;
+    margin-right: 8px;
+}
+
+.logo-wrapper {
+    align-items: center;
+    margin-right: 10px;
+}
+
+.logo-title {
+    font-size: 24px;
+    letter-spacing: 0px;
+    font-weight: 500;
+    color: black;
+}
+
+.manu-wrapper {
+    align-items: center;
+}
+
+.item-box {
+    text-decoration: none;
+    color: rgba(0, 0, 0, .8);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: .6px;
+    font-family: 'Poppins' !important;
+    padding-right: 17px;
+}
+
+
+.order-listing {
+    margin-bottom: 40px;
+}
+
+.item-name{
+    background: #867c7c;
+}
+
+th{
+    padding: 5px;
+}

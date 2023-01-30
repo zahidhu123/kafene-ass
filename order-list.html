@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./css/order-list.css">
+    <title>Order List</title>
+
+    <script>
+        async function callApi() {
+            let result = await fetch("https://5fc1a1c9cb4d020016fe6b07.mockapi.io/api/v1/orders");
+            result = await result.json();
+            console.warn(result);
+            document.getElementById("userData").innerHTML = result.map((user) => 
+                `<tr>
+                <td>${user.customerName}</td>
+                <td>${user.orderDate}</td>
+                <td>${user.orderTime}</td>
+                <td>${user.amount}</td>
+                <td>${user.orderStatus}</td>
+                
+                </tr>`
+            ).join(" ");
+
+        }
+        callApi();
+    </script>
+
+
+
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-wrapper">
+            <ul class="d-f p-x-3">
+                <li class="d-f logo-wrapper">
+                    <img src="./img/logo.5.png" alt="" class="brand-logo">
+                    <p class="m-0 logo-title">Kafene</p>
+                </li>
+            </ul>
+            <ul class="d-f manu-wrapper">
+                <li>
+                    <a class="item-box" href="">Orders</a>
+                </li>
+                <li>
+                    <a class="item-box" href="">Products</a>
+                </li>
+                <li>
+                    <a class="item-box" href="">Users</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <h2 class="order-listing">Order Listing</h2>
+
+
+        <table class="w-100">
+            <thead class="w-100">
+                <tr class="item-name">
+                    <th scope="col">Id</th>
+                    <th scope="col">Customer Name</th>
+                    <th scope="col">Order Date</th>
+                    <th scope="col">Order Time</th>
+                    <th scope="col">"Amount</th>
+                    <th scope="col">Order Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td colspan="2">Larry the Bird</td>
+                    <td>@twitter</td>
+                </tr> -->
+            </tbody>
+        </table>
+    </div>
+
+</body>
+
+</html>
