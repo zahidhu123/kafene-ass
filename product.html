@@ -7,9 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="./css/order-list.css">
-    <title>Order List</title>
-
+    <link rel="stylesheet" href="./css/product.css">
+    <title>Product Listing page</title>
 </head>
 
 <body>
@@ -35,18 +34,21 @@
             </ul>
         </div>
     </nav>
+
     <div class="container">
-        <h2 class="order-listing">Order Listing</h2>
+        <h2 class="order-listing">Product Listing</h2>
 
         <table class="w-100">
             <thead class="w-100">
                 <tr class="item-name">
                     <th scope="col">Id</th>
-                    <th scope="col">Customer Name</th>
-                    <th scope="col">Order Date</th>
-                    <th scope="col">Order Time</th>
-                    <th scope="col">Amount</th>
-                    <th scope="col">Order Status</th>
+                    <th scope="col">Medicine Name</th>
+                    <th scope="col">Medicine Brand</th>
+                    <th scope="col">Expiry Date</th>
+                    <th scope="col">Unit Price</th>
+                    <th scope="col">Prescription Required</th>
+                    <th scope="col">Stock</th>
+
                 </tr>
             </thead>
             <tbody id="userData">
@@ -55,21 +57,20 @@
         </table>
     </div>
 
-
-
     <script>
         async function callApi() {
-            let result = await fetch("https://5fc1a1c9cb4d020016fe6b07.mockapi.io/api/v1/orders");
+            let result = await fetch("https://5fc1a1c9cb4d020016fe6b07.mockapi.io/api/v1/products");
             result = await result.json();
             console.warn(result);
-            document.getElementById("userData").innerHTML = result.map((user) => 
+            document.getElementById("userData").innerHTML = result.map((users) => 
                 `<tr>
-                <td>${user.id}</td>
-                <td>${user.customerName}</td>
-                <td>${user.orderDate}</td>
-                <td>${user.orderTime}</td>
-                <td>${user.amount}</td>
-                <td>${user.orderStatus}</td>
+                <td>${users.id}</td>
+                <td>${users.medicineName}</td>
+                <td>${users.medicineBrand}</td>
+                <td>${users.expiryDate}</td>
+                <td>${users.unitPrice}</td>
+                <td>${users.prescriptionRequired}</td>
+                <td>${users.stock}</td>
                 
                 </tr>`
             ).join(" ");
